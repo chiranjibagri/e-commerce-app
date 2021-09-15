@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import pytest
 
-target_url = "http://34.93.76.204/install"
+target_url = "http://34.93.8.68/"
 
 print("########## Running the Selenium Script ##########")
 
@@ -19,6 +19,6 @@ def get_driver():
 @pytest.mark.usefixtures("get_driver")
 def test_data():
     driver.get(target_url)
-    element = driver.find_element_by_tag_name("h3")
-    print("########## Checking for header on the page ##########")
-    assert element.text == "Store information"
+    element = driver.find_element_by_tag_name("h1")
+    print("########## Checking for the main page of the ecommerce application ##########")
+    assert element.text == "Welcome to WildFly 11"
