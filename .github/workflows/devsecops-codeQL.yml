@@ -1,8 +1,9 @@
-name: "devsecops-codeQL"
+
+name: "devsecops-CodeQL"
 
 on:
   push:
-    branches: [ developer ]
+    branches: [ develop ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ developer ]
@@ -23,7 +24,6 @@ jobs:
       matrix:
         language: [ 'java' ]
         
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
         languages: ${{ matrix.language }}
         
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
-   
+      uses: github/codeql-action/autobuild@v1    
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
